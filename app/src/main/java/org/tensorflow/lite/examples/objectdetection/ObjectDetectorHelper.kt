@@ -51,6 +51,8 @@ class ObjectDetectorHelper(
         TfLiteGpu.isGpuDelegateAvailable(context).onSuccessTask { gpuAvailable: Boolean ->
             val optionsBuilder =
                 TfLiteInitializationOptions.builder()
+                  .setEnableGpuDelegateSupport(true)
+                  .build()
             if (gpuAvailable) {
                 optionsBuilder.setEnableGpuDelegateSupport(true)
             }
